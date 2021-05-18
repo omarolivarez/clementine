@@ -1,7 +1,7 @@
 import pandas
 
-Class Clemen():
-    def __init__():
+class Clemen():
+    def __init__(self):
         self.df = 0
         self.cols = []
         self.df_path = ""

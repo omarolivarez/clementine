@@ -3,10 +3,10 @@ function getPathToFile() {
   eel.get_csv()(setScreen);
 }
 
-function sendCsvToPython() {
+/*function sendCsvToPython() {
   var input = document.getElementById("input").value;
   eel.initialize_clemen(input)(setScreen);
-}
+}*/
 
 function setScreen(cols_list){
   var arr = cols_list;
@@ -27,37 +27,23 @@ function hideUnhide(form) {
   var col = form.column.value;
   var stat = form.statistic.value;
   var reps = form.repititions.value;
+  var com = form.completed.value;
   console.log(stat);
   console.log(reps);
   var inElement = document.getElementById("input");
   inElement.style.display = "none";
-  /*
-  var historyElement = document.getElementById("importHistory");
-  historyElement.style.display = "none";
-  var noElement = document.getElementById("gridRadios1");
-  noElement.style.display = "none";
-  var yesElement = document.getElementById("gridRadios2");
-  yesElement.style.display = "none";
-  var colElement = document.getElementById("column");
-  colElement.style.display = "none";
-  var statElement = document.getElementById("statistic");
-  statElement.style.display = "none";
-  var repsElement = document.getElementById("repititions");
-  repsElement.style.display = "none";
-  */
   var formElement = document.getElementById("firstPageForm");
   formElement.style.display = "none";
 
-  /*document.getElementById("input").style.display = "none";
-  document.getElementById("importHistory").style.display = "none";
-  document.getElementById("gridRadios1").style.display = "none";
-  document.getElementById("gridRadios2").style.display = "none";
-  document.getElementById("column").style.display = "none";
-  document.getElementById("statistic").style.display = "none";
-  document.getElementById("repititions").style.display = "none";
-  document.getElementById("begin").style.display = "none";
-
-  document.getElementById("progress").style.display = "none";*/
+  var pauseElement = document.getElementById("pause");
+  pauseElement.style.display = "block";
+  var progressElement = document.getElementById("progress");
+  progressElement.style.display = "block";
+  //progressElement.style.backgroundColor = "none";
+  var progressDivElement = document.getElementById("progressDiv");
+  progressDivElement.style.display = "block";
+  progressDivElement.style.backgroundColor = "white";
+  eel.bootstrap(col, stat, reps, com)();
 
 }
 

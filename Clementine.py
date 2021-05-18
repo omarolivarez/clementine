@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
 from Clemen import Clemen
+import time
 
 eel.init('web')
 clem = Clemen()
@@ -21,6 +22,7 @@ def get_csv():
     columns = list(d)
     clem.set_columns(columns)
     print(columns)
+
     return columns
 
 @eel.expose
@@ -29,6 +31,14 @@ def initialize_clemen(df):
 
     columns_list = []
     return(columns_list)
+
+@eel.expose
+def bootstrap(col, stat, reps, com):
+    print(col, stat, reps, com)
+    for i in range(100):
+        print(i)
+        time.sleep(0.5)
+
 
 
 eel.start("index.html", size=(600,600))

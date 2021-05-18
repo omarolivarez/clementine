@@ -3,7 +3,7 @@ import pandas
 class Clemen():
     def __init__(self):
         self.df = 0
-        self.cols = []
+        self.col = []
         self.df_path = ""
         self.history_path = ""
         self.reps_passed = 0
@@ -17,11 +17,11 @@ class Clemen():
     def get_df(self):
         return self.df
 
-    def set_columns(self, cols):
-        self.columns = cols
+    def set_column(self, col):
+        self.col = col
 
-    def get_columns(self):
-        return self.cols
+    def get_column(self):
+        return self.col
 
     def set_df_path(self, path):
         self.df_path = path

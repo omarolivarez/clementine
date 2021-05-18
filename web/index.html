@@ -66,6 +66,8 @@
                     <div class="col-sm-3">
                       <label for="repititions">Repitions</label>
                       <input class="form-control" style="display:block" type="text" placeholder="10,000" id="repititions">
+                      <label for="completed">Completed</label>
+                      <input class="form-control" style="display:block" type="text" placeholder="0" id="completed">
                     </div>
                   </div>
 
@@ -74,11 +76,13 @@
                 </form>
 
                 <br>
-
-                <div class="progress" id="progressDiv">
-                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;" id="progress"></div>
+                <div class="col-sm-3">
+                  <button class="btn btn-warning" onclick="" style="display:none;" id="pause">Pause</button>
                 </div>
-
+                <br>
+                <div class="progress" id="progressDiv" style="background-color:#222222;display:none"> <!---->
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:5%;display:none;" id="progress"> 1% </div>
+                </div>
               </div>
           </div>
       </div>

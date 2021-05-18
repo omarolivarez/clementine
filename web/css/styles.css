@@ -66,3 +66,7 @@ body {
 .inputfile + label {
 	cursor: pointer; /* "hand" cursor */
 }
+
+.progressDiv {
+  display: block;
+}

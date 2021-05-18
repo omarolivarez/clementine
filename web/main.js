@@ -52,8 +52,7 @@ function testResults (form) {
             alert ("You typed: " + TestVar);
         }
 
-$('form#begin').submit(function(e){
-    //$(this).children('input[type=submit]').attr('disabled', 'disabled');
-    // this is just for demonstration
-    $("select#statistic").prop('disabled', true);
-});
+function updateProgressAndCallSample() {
+
+}
+ee.expose(updateProgressAndCallSample)

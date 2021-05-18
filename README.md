@@ -14,3 +14,12 @@ On a recent project, I was bootstrapping a dataset of more than a million rows. 
 
 ## Feedback welcome!
 I would love to improve Clementine for the scientific and developer communities. Have any recommendations, feature requests, or bug fixes? Please reach out to me and I'd be happy to incorporate your feedback.
+
+## How to use Clementine  
+**What you'll need:** a CSV file that contains a column that you would like to bootstrap.
+1. Upon launching Clementine, you will be prompted to select a CSV to process. Navigate to the location of your CSV and click the "Process" button in Clementine.
+2. History files are Clementine's way of storing your previous progress. If this is your first time running Clementine, you won't have any history files to upload, and can simply leave the default option of "No" for Import History? In future runs, you can use the option "Yes" to import your progress into Clementine so it can start where you last left off.
+3. Clementine will select the column headers for your CSV and display them in the Column field. Select the column you would like to bootstrap. This column must contain numbers as either integers (1, 2, 3) or floats (0.2, 2.1, 3.0).
+4. Select which statistic you would like to calculate on each bootstrapped sample. You can select from: Mean, Median  
+5. Select how many repetitions you would like Clementine to perform. You can always pause Clementine mid-way through your bootstrapping so it's okay if you want to bootstrap a lot! (10,000 or more)
+6. Click the Begin button to launch the bootstrapping process. 

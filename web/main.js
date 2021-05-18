@@ -52,7 +52,10 @@ function testResults (form) {
             alert ("You typed: " + TestVar);
         }
 
-function updateProgressAndCallSample() {
-
+function updateProgressAndCallSample(perc) {
+  var progress = document.getElementById("progress");
+  progress.style.width = perc;
+  progress.textContext = perc
+  eel.sample()
 }
-ee.expose(updateProgressAndCallSample)
+eel.expose(updateProgressAndCallSample)

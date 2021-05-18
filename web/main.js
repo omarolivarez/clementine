@@ -52,7 +52,16 @@ function testResults (form) {
             alert ("You typed: " + TestVar);
         }
 
-function updateProgressAndCallSample() {
-
+function updateProgressAndCallSample(perc) {
+  console.log("inside updateProgressAndCallSample()")
+  console.log(perc)
+  var progress = document.getElementById("progress");
+  progress.style.width = perc;
+  progress.innerHTML = perc;
+  eel.sample();
 }
-ee.expose(updateProgressAndCallSample)
+eel.expose(updateProgressAndCallSample)
+
+function endProgress(){
+  
+}

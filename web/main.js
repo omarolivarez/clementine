@@ -53,9 +53,15 @@ function testResults (form) {
         }
 
 function updateProgressAndCallSample(perc) {
+  console.log("inside updateProgressAndCallSample()")
+  console.log(perc)
   var progress = document.getElementById("progress");
   progress.style.width = perc;
-  progress.textContext = perc
-  eel.sample()
+  progress.innerHTML = perc;
+  eel.sample();
 }
 eel.expose(updateProgressAndCallSample)
+
+function endProgress(){
+  
+}

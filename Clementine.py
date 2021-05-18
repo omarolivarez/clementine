@@ -56,20 +56,26 @@ def sample():
         s = series.sample(series.size, replace = True) # gets sample same size as the series
     	# and samples with replacement
         m = s.mean()
-        print(m)
+        print("mean", m)
         sql = ''' INSERT INTO stats(statistic)
                   VALUES(?) '''
         #cur = conn.cursor()
         cur.execute(sql, (str(m),))
-        print(sql)
         con.commit()
         # passing the completed reps back to JS
-        clem.set_reps_passed(clem.get_reps_passed() + 1)
+        clem.set_reps_passed(int(clem.get_reps_passed()) + 1)
+        print("Reps passed:", clem.get_reps_passed())
         # convert to a integer percent
         perc = round(( int(clem.get_reps_passed()) / int(clem.get_total_reps()) ) * 100)
+        perc = str(perc) + "%"
+        print("percent:", perc)
+        print("------------------------")
+        time.sleep(0.05)
+
         eel.updateProgressAndCallSample(perc)
     else:
         print("you is done!")
+        eel.endProgress()
 
 def create_db():
 

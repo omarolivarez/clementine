@@ -1,11 +1,6 @@
 # clementine
 A sleek desktop app for processing heavy bootstrapping loads.  
-
-## #Developer information
-**Author:** Omar Olivarez  
-
-## Development information
-**ersion:** 1.0  
+**Version:** 1.0  
 **Stack:** Python, Eel, HTML, Javascript, CSS  
 
 ## Issue being solved

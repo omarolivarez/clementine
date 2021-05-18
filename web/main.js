@@ -14,12 +14,16 @@ function setScreen(cols_list){
   console.log(arr.length)
   //var i;
   var select = document.getElementById("column");
-  for (var i=0; i<cols_list.length; i++) {
-      console.log("in loop");
-      //var opt = arr[i];
-      //var el = document.createElement("option");
-      //el.textContent = opt;
-      //el.value = opt;
-      //select.add(el);
-  }​
+  for (let step = 0; step < cols_list.length; step++) {
+    // Runs 5 times, with values of step 0 through 4.
+    console.log("in loop");
+    var opt = arr[step];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.add(el);
+  }
+  //for (var i=0; i<cols_list.length; i++) {
+  //
+  //}​
 }

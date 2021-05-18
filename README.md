@@ -1,5 +1,5 @@
 # clementine
-A sleek desktop app for processing heavy bootstrapping loads.  
+**What is it?** A sleek desktop app for processing heavy bootstrapping loads.  
 **Version:** 1.0  
 **Stack:** Python, Eel, HTML, Javascript, CSS  
 

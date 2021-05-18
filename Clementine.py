@@ -8,4 +8,4 @@ def cuber():
     return(27)
 
 
-eel.start("index.html", size=(600,350))
+eel.start("index.html", size=(600,600))

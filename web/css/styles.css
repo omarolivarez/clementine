@@ -37,10 +37,17 @@ body {
     box-shadow: none
 }
 
-.btn {
+#processButton {
     background-color: #5c72d8;
     font-size: 0.78rem;
     border: 0px
+}
+
+#resetButton {
+  background-color: #424242;
+  color: #141414;
+  font-size: 0.78rem;
+  border: 0px
 }
 
 .btn:focus {
@@ -50,4 +57,12 @@ body {
 
 *:focus {
     outline: none
+}
+
+.btn-success{
+  background-color: #04d928;
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
 }

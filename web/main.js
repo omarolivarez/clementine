@@ -22,9 +22,16 @@ function setScreen(cols_list){
   }
 }
 
-function hideUnhide() {
+function hideUnhide(form) {
   console.log("just got to hideUnhide");
-  document.getElementById("input").style.display = "none";
+  var col = form.column.value;
+  var stat = form.statistic.value;
+  var reps = form.repititions.value;
+  console.log(stat);
+  console.log(reps);
+  //var myElement = document.getElementById("column");
+  //myElement.style.display = "none";
+  /*document.getElementById("input").style.display = "none";
   document.getElementById("importHistory").style.display = "none";
   document.getElementById("gridRadios1").style.display = "none";
   document.getElementById("gridRadios2").style.display = "none";
@@ -33,6 +40,17 @@ function hideUnhide() {
   document.getElementById("repititions").style.display = "none";
   document.getElementById("begin").style.display = "none";
 
-  document.getElementById("progress").style.display = "none";
+  document.getElementById("progress").style.display = "none";*/
 
 }
+
+function testResults (form) {
+            var TestVar = form.inputbox.value;
+            alert ("You typed: " + TestVar);
+        }
+
+$('form#begin').submit(function(e){
+    //$(this).children('input[type=submit]').attr('disabled', 'disabled');
+    // this is just for demonstration
+    $("select#statistic").prop('disabled', true);
+});

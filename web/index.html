@@ -31,14 +31,14 @@
                   <div class="col-3 px-0"> <button class="btn text-white px-4 py-2" onclick="sendCsvToPython()" id="processButton"> Process </button> </div>-->
                 </div>
 
-                <form>
+                <form action="" method="GET" onsubmit="return false;" id="firstPageForm">
                   <fieldset class="form-group" id="initialForm">
                     <div class="row">
                       <legend class="col-form-label col-sm-4 pt-0" id="importHistory">Import History?</legend>
                       <div class="col-sm-8">
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                          <label class="form-check-label" for="gridRadios1"> No </label>
+                          <label class="form-check-label" for="gridRadios1" id="noLabel"> No </label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
@@ -53,8 +53,6 @@
                       <label for="column">Column</label>
                       <select class="form-control" id="column">
                         <!--<option>1</option>
-                        <option>2</option>
-                        <option>3</option>
                         <option>4</option>-->
                       </select>
                     </div>
@@ -72,7 +70,7 @@
                   </div>
 
                   <br>
-                  <button type="submit" class="btn btn-success" onclick="hideUnhide()" id="begin">Begin</button> <!-- -->
+                  <button class="btn btn-success" onclick="hideUnhide(this.form)" id="begin">Begin</button> <!-- -->
                 </form>
 
                 <br>

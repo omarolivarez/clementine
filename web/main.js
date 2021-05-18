@@ -29,8 +29,25 @@ function hideUnhide(form) {
   var reps = form.repititions.value;
   console.log(stat);
   console.log(reps);
-  //var myElement = document.getElementById("column");
-  //myElement.style.display = "none";
+  var inElement = document.getElementById("input");
+  inElement.style.display = "none";
+  /*
+  var historyElement = document.getElementById("importHistory");
+  historyElement.style.display = "none";
+  var noElement = document.getElementById("gridRadios1");
+  noElement.style.display = "none";
+  var yesElement = document.getElementById("gridRadios2");
+  yesElement.style.display = "none";
+  var colElement = document.getElementById("column");
+  colElement.style.display = "none";
+  var statElement = document.getElementById("statistic");
+  statElement.style.display = "none";
+  var repsElement = document.getElementById("repititions");
+  repsElement.style.display = "none";
+  */
+  var formElement = document.getElementById("firstPageForm");
+  formElement.style.display = "none";
+
   /*document.getElementById("input").style.display = "none";
   document.getElementById("importHistory").style.display = "none";
   document.getElementById("gridRadios1").style.display = "none";

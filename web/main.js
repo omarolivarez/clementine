@@ -77,6 +77,7 @@ function testResults (form) {
 
 function pauseProgress(){
   console.log("YOU ARE IN PAUSEPROGRESS()")
+  eel.write_config()
 }
 
 function updateProgressAndCallSample(perc) {

@@ -65,7 +65,7 @@ def sample():
         con.commit()
         # passing the completed reps back to JS
         clem.set_reps_passed(int(clem.get_reps_passed()) + 1)
-        print("Reps passed:", clem.get_reps_passed())
+        print("Reps passed:", clem.get_reps_passed()) # NOTE: update this to: completed reps
         # convert to a integer percent
         perc = round(( int(clem.get_reps_passed()) / int(clem.get_total_reps()) ) * 100)
         perc = str(perc) + "%"
@@ -83,30 +83,27 @@ def create_db():
     tbl_name = set_table_name()
     create_table_query = "CREATE TABLE IF NOT EXISTS stats (statistic REAL);" #"CREATE TABLE IF NOT EXISTS " + tbl_name + " (statistic INTEGER);"
     print(create_table_query)
+    # NOTE: dump table once the bootstrap is done
     cur.execute(create_table_query)
     return
-    # make a function that takes one sample
-    # inserts the sample into the db
-    # updates com by 1
-    # updates the progress bar with com
-    # makes the function call again
 
 def set_table_name():
     table_name = "stats" #clem.get_column().upper() + "_" + clem.get_stat.upper() + "S"
     return table_name
 
 @eel.expose
-def write_config(col_name, com, total):
+def write_config():
     print("inside write_config()")
     # we need:
     # com, total
     # future work: stat
     config = configparser.ConfigParser()
-    config['DEFAULT']['column_name'] = col_name # create new config
-    config['DEFAULT']['completed_reps'] = com # create new config
-    config['DEFAULT']['total_reps'] = total # create new config
+    config['DEFAULT']['column_name'] = clem.get_column() # create new config
+    config['DEFAULT']['completed_reps'] = str(clem.get_reps_passed()) # create new config
+    config['DEFAULT']['total_reps'] = str(clem.get_total_reps()) # create new config
     with open('history.ini', 'w') as configfile:    # save
         config.write(configfile)
+    return
 
 
 eel.start("index.html", size=(600,600))

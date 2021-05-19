@@ -30,7 +30,7 @@ class Clemen():
         return self.df_path
 
     def set_reps_passed(self, reps_passed):
-        self.hreps_passed = reps_passed
+        self.reps_passed = reps_passed
 
     def get_reps_passed(self):
         return self.reps_passed

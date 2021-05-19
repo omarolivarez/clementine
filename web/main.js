@@ -26,8 +26,11 @@ function hideUnhide(form) {
   console.log("just got to hideUnhide");
   var col = form.column.value;
   var stat = form.statistic.value;
-  var reps = form.repititions.value;
+  var reps = form.repetitions.value;
   var com = form.completed.value;
+  if(com=="" || com== null){
+    var com = 0;
+  }
   console.log(stat);
   console.log(reps);
   var inElement = document.getElementById("input");
@@ -63,5 +66,6 @@ function updateProgressAndCallSample(perc) {
 eel.expose(updateProgressAndCallSample)
 
 function endProgress(){
-  
+  alert("Bootstrapping complete!");
 }
+eel.expose(endProgress)

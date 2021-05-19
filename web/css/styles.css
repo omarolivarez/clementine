@@ -66,3 +66,11 @@ body {
 .inputfile + label {
 	cursor: pointer; /* "hand" cursor */
 }
+
+.column + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.statistic + label {
+	cursor: pointer; /* "hand" cursor */
+}

@@ -1,12 +1,32 @@
+var clicked = false;
+var p = document.getElementById("pause");
+
+function flipClicked() {
+  clicked = true;
+}
+/*p.addEventListener('click', flipClicked);​
+function flipClicked() {
+  clicked = true;
+}
+p.addEventListener("click", function() {
+   clicked = true
+}​);​*/
+/*
+document.addEventListener('DOMContentLoaded', init, false);
+function init(){
+  function flipClicked() {
+    clicked = true;
+  }
+
+
+  console.log(progress.innerHTML)
+  //p.addEventListener('click', flipClicked);​
+};*/
+
 function getPathToFile() {
   console.log("just got to getPathToFile");
   eel.get_csv()(setScreen);
 }
-
-/*function sendCsvToPython() {
-  var input = document.getElementById("input").value;
-  eel.initialize_clemen(input)(setScreen);
-}*/
 
 function setScreen(cols_list){
   var arr = cols_list;
@@ -53,7 +73,11 @@ function hideUnhide(form) {
 function testResults (form) {
             var TestVar = form.inputbox.value;
             alert ("You typed: " + TestVar);
-        }
+}
+
+function pauseProgress(){
+  console.log("YOU ARE IN PAUSEPROGRESS()")
+}
 
 function updateProgressAndCallSample(perc) {
   console.log("inside updateProgressAndCallSample()")
@@ -61,7 +85,14 @@ function updateProgressAndCallSample(perc) {
   var progress = document.getElementById("progress");
   progress.style.width = perc;
   progress.innerHTML = perc;
-  eel.sample();
+  /*document.getElementById('pause').onclick = function() {
+     pauseProgress();
+  }​;​*/
+  if(clicked){
+    pauseProgress();
+  } else {
+    eel.sample();
+  }
 }
 eel.expose(updateProgressAndCallSample)
 

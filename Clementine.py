@@ -6,6 +6,7 @@ from Clemen import Clemen
 import time
 import bstrap as bs
 import sqlite3
+import configparser
 
 eel.init('web')
 clem = Clemen()
@@ -24,7 +25,7 @@ def get_csv():
     root.destroy()
     print("before pandas read")
     d = pd.read_csv(file_path)
-    clem.set_df(d)
+    clem.set_df(d) # NOTE: change this to set_data
     columns = list(d)
     clem.set_column(columns)
     print(columns)
@@ -41,18 +42,18 @@ def initialize_clemen(df):
 @eel.expose
 def bootstrap(col, stat, reps, com):
     print(col, stat, reps, com)
-    clem.set_column(col)
+    clem.set_column(col) # NOTE: change this to set_column_name()
     clem.set_stat(stat)
     clem.set_reps_passed(com)
     clem.set_total_reps(reps)
-    clem.set_df(clem.get_df()[clem.get_column()])
+    clem.set_df(clem.get_df()[clem.get_column()]) # NOTE: change this to set_series
     create_db()
     sample()
 
 @eel.expose
 def sample():
     if int(clem.reps_passed) < int(clem.total_reps):
-        series = clem.get_df()
+        series = clem.get_df() #NOTE: change this to get_series
         s = series.sample(series.size, replace = True) # gets sample same size as the series
     	# and samples with replacement
         m = s.mean()
@@ -78,7 +79,6 @@ def sample():
         eel.endProgress()
 
 def create_db():
-
     print("CREATE TABLE()")
     tbl_name = set_table_name()
     create_table_query = "CREATE TABLE IF NOT EXISTS stats (statistic REAL);" #"CREATE TABLE IF NOT EXISTS " + tbl_name + " (statistic INTEGER);"
@@ -94,6 +94,19 @@ def create_db():
 def set_table_name():
     table_name = "stats" #clem.get_column().upper() + "_" + clem.get_stat.upper() + "S"
     return table_name
+
+@eel.expose
+def write_config(col_name, com, total):
+    print("inside write_config()")
+    # we need:
+    # com, total
+    # future work: stat
+    config = configparser.ConfigParser()
+    config['DEFAULT']['column_name'] = col_name # create new config
+    config['DEFAULT']['completed_reps'] = com # create new config
+    config['DEFAULT']['total_reps'] = total # create new config
+    with open('history.ini', 'w') as configfile:    # save
+        config.write(configfile)
 
 
 eel.start("index.html", size=(600,600))

@@ -44,11 +44,11 @@
                           <legend class="col-form-label col-sm-4 pt-0" id="importHistory">Import History?</legend>
                           <div class="col-sm-8">
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="no" checked>
                               <label class="form-check-label" for="gridRadios1" id="noLabel"> No </label>
                             </div>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="yes">
                               <label class="form-check-label" for="gridRadios2"> Yes </label>
                             </div>
                           </div>
@@ -72,12 +72,12 @@
                     </div>
 
                     <div class="row">
-                      <div class="col-sm-5">
+                      <div class="col-sm-5" id="completedDiv" style="display:none;">
                         <label for="completed">Completed</label>
                         <input class="form-control" style="display:block" type="text" placeholder="0"  disabled="disabled" id="completed">
                       </div>
-                      <div class="col-sm-2">
-                        <label>out of</label>
+                      <div class="col-sm-2" >
+                        <label id="outOf" style="display:none;">out of</label>
                       </div>
                       <div class="col-sm-5">
                         <label for="repetitions">Repetions</label>

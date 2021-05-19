@@ -1,5 +1,39 @@
 var clicked = false;
 var p = document.getElementById("pause");
+var radioButton = document.getElementById("gridRadios1")
+$(document).ready(function(){
+    $('input[type=radio]').click(function(){
+        if(this.value=="yes"){
+          var columnField = document.getElementById("column");
+          columnField.removeAttribute("enabled", "");
+          columnField.setAttribute("disabled", "");
+          var statField = document.getElementById("statistic");
+          statField.removeAttribute("enabled", "");
+          statField.setAttribute("disabled", "");
+          var repsField = document.getElementById("repetitions");
+          repsField.removeAttribute("enabled", "");
+          repsField.setAttribute("disabled", "");
+          var completedField = document.getElementById("completedDiv");
+          completedField.style.display = "block";
+          var completedField = document.getElementById("outOf");
+          completedField.style.display = "block";
+        } else {
+          var columnField = document.getElementById("column");
+          columnField.removeAttribute("disabled", "");
+          columnField.setAttribute("enabled", "");
+          var statField = document.getElementById("statistic");
+          statField.removeAttribute("disabled", "");
+          statField.setAttribute("enabled", "");
+          var repsField = document.getElementById("repetitions");
+          repsField.removeAttribute("disabled", "");
+          repsField.setAttribute("enabled", "");
+          var completedField = document.getElementById("completedDiv");
+          completedField.style.display = "none";
+          var completedField = document.getElementById("outOf");
+          completedField.style.display = "none";
+        }
+    });
+});
 
 function flipClicked() {
   clicked = true;

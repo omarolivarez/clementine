@@ -117,14 +117,21 @@ def import_history():
 
     print("Reading in the .ini file")
     config = configparser.ConfigParser()
-    history = config.read(file_path)['DEFAULT']
+    config.read(file_path)
+
+    # get variables from history_path
+    col_name = config['DEFAULT']['column_name']
+    com_reps = config['DEFAULT']['completed_reps']
+    total_reps = config['DEFAULT']['total_reps']
+    stat = "Mean"
 
     # set the values from .ini into clem object
-    clem.set_column(history.get('column_name'))
-    clem.set_reps_passed(history.get('completed_reps'))
-    clem.set_total_reps(history.get('total_reps'))
+    clem.set_column(col_name)
+    clem.set_reps_passed(com_reps)
+    clem.set_total_reps(total_reps)
+    clem.set_total_reps(stat)
 
-    eel.updateConfigs()
+    eel.updateConfigs(col_name, com_reps, total_reps, stat)
     return
 
 eel.start("index.html", size=(600,600))

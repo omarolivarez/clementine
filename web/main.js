@@ -4,6 +4,8 @@ var radioButton = document.getElementById("gridRadios1")
 $(document).ready(function(){
     $('input[type=radio]').click(function(){
         if(this.value=="yes"){ // this means they are importing history
+          eel.import_history() // trigger the filedialog to open .ini file
+
           var columnField = document.getElementById("column");
           columnField.removeAttribute("enabled", "");
           columnField.setAttribute("disabled", "");
@@ -19,7 +21,6 @@ $(document).ready(function(){
           var completedField = document.getElementById("outOf");
           completedField.style.display = "block";
 
-          eel.import_history()
         } else { // this means they're not importing history
           var columnField = document.getElementById("column");
           columnField.removeAttribute("disabled", "");
@@ -35,6 +36,7 @@ $(document).ready(function(){
           completedField.style.display = "none";
           var completedField = document.getElementById("outOf");
           completedField.style.display = "none";
+          
         }
     });
 });
@@ -42,24 +44,6 @@ $(document).ready(function(){
 function flipClicked() {
   clicked = true;
 }
-/*p.addEventListener('click', flipClicked);​
-function flipClicked() {
-  clicked = true;
-}
-p.addEventListener("click", function() {
-   clicked = true
-}​);​*/
-/*
-document.addEventListener('DOMContentLoaded', init, false);
-function init(){
-  function flipClicked() {
-    clicked = true;
-  }
-
-
-  console.log(progress.innerHTML)
-  //p.addEventListener('click', flipClicked);​
-};*/
 
 function getPathToFile() {
   console.log("just got to getPathToFile");
@@ -80,12 +64,14 @@ function setScreen(cols_list){
   }
 }
 
+// this function will hide the settings section and show the progress section
 function hideUnhide(form) {
   console.log("just got to hideUnhide");
   var col = form.column.value;
   var stat = form.statistic.value;
   var reps = form.repetitions.value;
   var com = form.completed.value;
+  // if nothing is input into the completed reps field, make it 0
   if(com=="" || com== null){
     var com = 0;
   }
@@ -139,3 +125,16 @@ function endProgress(){
   alert("Bootstrapping complete!");
 }
 eel.expose(endProgress)
+
+function updateConfigs(col_name, com_reps, total_reps, stat){
+  var select = document.getElementById("column");
+  var col = col_name;
+  var el = document.createElement("option");
+  el.textContent = col;
+  el.value = col;
+  select.add(el);
+  document.getElementById("completed").value = com_reps;
+  document.getElementById("repetitions").value = total_reps;
+  document.getElementById("statistic").value = stat;
+}
+eel.expose(updateConfigs)

@@ -123,9 +123,14 @@ eel.expose(updateProgressAndCallSample)
 
 function endProgress(){
   alert_string = eel.calculate_bootstrapped_values()
-  alert(alert_string);
+
 }
 eel.expose(endProgress)
+
+function showBoostrapAlert(alert_string){
+  alert(alert_string);
+}
+eel.expose(showBoostrapAlert)
 
 function updateConfigs(col_name, com_reps, total_reps, stat){
   var select = document.getElementById("column");

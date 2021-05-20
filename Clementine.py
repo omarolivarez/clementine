@@ -4,9 +4,10 @@ from tkinter import filedialog
 import pandas as pd
 from Clemen import Clemen
 import time
-import bstrap as bs
+#import bstrap as bs
 import sqlite3
 import configparser
+import math
 
 eel.init('web')
 clem = Clemen()
@@ -81,7 +82,7 @@ def sample():
 def create_db():
     print("CREATE TABLE()")
     tbl_name = set_table_name()
-    create_table_query = "CREATE TABLE IF NOT EXISTS stats (statistic REAL);" #"CREATE TABLE IF NOT EXISTS " + tbl_name + " (statistic INTEGER);"
+    create_table_query = "CREATE TABLE IF NOT EXISTS stats (statistic REAL);" # REAL is what's used for decimals
     print(create_table_query)
     # NOTE: dump table once the bootstrap is done
     cur.execute(create_table_query)
@@ -133,5 +134,44 @@ def import_history():
 
     eel.updateConfigs(col_name, com_reps, total_reps, stat)
     return
+
+@eel.expose
+def calculate_bootstrapped_values():
+    sql = ''' SELECT avg(statistic)
+              from stats '''
+    print(sql)
+    cur.execute(sql)
+    row_avg = cur.fetchall()
+    print("AVERAGE BOOTSTRAPPED VALUE:", row_avg)
+
+    # getting the row count
+    sql_count = ''' SELECT COUNT(*)
+              from stats '''
+    print(sql_count)
+    cur.execute(sql_count)
+    row_count = cur.fetchall()
+    print("# of BOOTSTRAPPED VALUEs:", row_count)
+
+    # getting the st dev
+    sql_sd = ''' SELECT AVG((stats.row - sub.a) * (stats.row - sub.a)) as var
+              from stats,
+              (SELECT AVG(row) AS a
+              from stats) AS sub '''
+    print(sql_sd)
+    cur.execute(sql_sd)
+    row_sd = cur.fetchall()
+    print("row_sd = ", row_sd)
+    row_sd = math.sqrt(row_sd)
+    #SELECT AVG((t.row - sub.a) * (t.row - sub.a)) as var from t,
+    #(SELECT AVG(row) AS a FROM t) AS sub;
+    ci_lo = round(row_avg + 1.95 * row_sd / math.sqrt(row_count), 5)
+	ci_hi = round(row_avg - 1.95 * row_sd / math.sqrt(row_count), 5)
+
+    # create a string to pass back into the alert
+    string_to_return = "Bootstrapped mean:" + str(row_avg) + " (" +
+        str(ci_lo) + "to" + str(ci_hi) + ") out of" + str(row_count) + "repetitions."
+
+    #con.commit()
+    return string_to_return
 
 eel.start("index.html", size=(600,600))

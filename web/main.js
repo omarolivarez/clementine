@@ -36,7 +36,7 @@ $(document).ready(function(){
           completedField.style.display = "none";
           var completedField = document.getElementById("outOf");
           completedField.style.display = "none";
-          
+
         }
     });
 });
@@ -122,7 +122,8 @@ function updateProgressAndCallSample(perc) {
 eel.expose(updateProgressAndCallSample)
 
 function endProgress(){
-  alert("Bootstrapping complete!");
+  alert_string = eel.calculate_bootstrapped_values()
+  alert(alert_string);
 }
 eel.expose(endProgress)
 

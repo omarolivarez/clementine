@@ -4,9 +4,10 @@ from tkinter import filedialog
 import pandas as pd
 from Clemen import Clemen
 import time
-import bstrap as bs
+#import bstrap as bs
 import sqlite3
 import configparser
+import math
 
 eel.init('web')
 clem = Clemen()
@@ -16,7 +17,7 @@ cur = con.cursor()
 
 @eel.expose
 def get_csv():
-    print("start")
+    print("Inside get_csv()")
     root = tk.Tk()
     root.withdraw()
 
@@ -81,7 +82,7 @@ def sample():
 def create_db():
     print("CREATE TABLE()")
     tbl_name = set_table_name()
-    create_table_query = "CREATE TABLE IF NOT EXISTS stats (statistic REAL);" #"CREATE TABLE IF NOT EXISTS " + tbl_name + " (statistic INTEGER);"
+    create_table_query = "CREATE TABLE IF NOT EXISTS stats (statistic REAL);" # REAL is what's used for decimals
     print(create_table_query)
     # NOTE: dump table once the bootstrap is done
     cur.execute(create_table_query)
@@ -105,5 +106,84 @@ def write_config():
         config.write(configfile)
     return
 
+@eel.expose
+def import_history():
+    # create the window to select the .ini's file path
+    root = tk.Tk()
+    root.withdraw()
+    file_path = filedialog.askopenfilename()
+    print("This is the selected file path:", file_path)
+    root.update()
+    root.destroy()
+
+    print("Reading in the .ini file")
+    config = configparser.ConfigParser()
+    config.read(file_path)
+
+    # get variables from history_path
+    col_name = config['DEFAULT']['column_name']
+    com_reps = config['DEFAULT']['completed_reps']
+    total_reps = config['DEFAULT']['total_reps']
+    stat = "Mean"
+
+    # set the values from .ini into clem object
+    clem.set_column(col_name)
+    clem.set_reps_passed(com_reps)
+    clem.set_total_reps(total_reps)
+    clem.set_total_reps(stat)
+
+    eel.updateConfigs(col_name, com_reps, total_reps, stat)
+    return
+
+@eel.expose
+def calculate_bootstrapped_values():
+    sql = ''' SELECT avg(statistic)
+              from stats '''
+    print(sql)
+    cur.execute(sql)
+    row_avg = round(cur.fetchall()[0][0], 5) # fetchall returns a list of a tuple
+    print("AVERAGE BOOTSTRAPPED VALUE:", row_avg)
+
+    # getting the row count
+    sql_count = ''' SELECT COUNT(*)
+              from stats '''
+    print(sql_count)
+    cur.execute(sql_count)
+    row_count = cur.fetchall()[0][0]
+    print("# of BOOTSTRAPPED VALUEs:", row_count)
+
+    # getting the st dev
+    sql_sd = ''' SELECT AVG((stats.statistic - sub.a) * (stats.statistic - sub.a)) as var
+              from stats,
+              (SELECT AVG(statistic) AS a
+              from stats) AS sub '''
+    print(sql_sd)
+    cur.execute(sql_sd) # this will actually retrieve variance, we'll claculate SD further down
+    row_sd = cur.fetchall()[0][0]
+    #print("row_sd = ", row_sd)
+    row_sd = math.sqrt(row_sd)
+    print("real SD:", row_sd)
+    #SELECT AVG((t.row - sub.a) * (t.row - sub.a)) as var from t,
+    #(SELECT AVG(row) AS a FROM t) AS sub;
+    ci_hi = round(row_avg + 1.95 * (row_sd / math.sqrt(row_count)), 5)
+    ci_lo = round(row_avg - 1.95 * (row_sd / math.sqrt(row_count)), 5)
+
+    # create a string to pass back into the alert
+    string_to_return = "Boostrapping complete!\nBootstrapped mean: " + str(row_avg) + "\nConfidence interval: " + \
+        str(ci_lo) + " to " + str(ci_hi) + "\nOut of " + f"{row_count:,d}" + " repetitions."
+    print(string_to_return)
+    #print(f"{row_count:,d}")
+    #con.commit()
+    #return string_to_return
+
+    # delete all rows from table
+    cur.execute('DELETE FROM stats;',);
+    print('We have **DELETED**', cur.rowcount, 'records from the table.')
+    #commit the changes to db
+    con.commit()
+    #close the connection
+    #con.close() # need to see if I actually need to close this connection, and where to do so
+
+    eel.showBoostrapAlert(string_to_return)
 
 eel.start("index.html", size=(600,600))

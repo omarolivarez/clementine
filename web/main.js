@@ -3,7 +3,7 @@ var p = document.getElementById("pause");
 var radioButton = document.getElementById("gridRadios1")
 $(document).ready(function(){
     $('input[type=radio]').click(function(){
-        if(this.value=="yes"){
+        if(this.value=="yes"){ // this means they are importing history
           var columnField = document.getElementById("column");
           columnField.removeAttribute("enabled", "");
           columnField.setAttribute("disabled", "");
@@ -13,11 +13,14 @@ $(document).ready(function(){
           var repsField = document.getElementById("repetitions");
           repsField.removeAttribute("enabled", "");
           repsField.setAttribute("disabled", "");
+          //show these elements bc they do have the history, but leave them disabled in the html
           var completedField = document.getElementById("completedDiv");
           completedField.style.display = "block";
           var completedField = document.getElementById("outOf");
           completedField.style.display = "block";
-        } else {
+
+          eel.import_history()
+        } else { // this means they're not importing history
           var columnField = document.getElementById("column");
           columnField.removeAttribute("disabled", "");
           columnField.setAttribute("enabled", "");
@@ -27,6 +30,7 @@ $(document).ready(function(){
           var repsField = document.getElementById("repetitions");
           repsField.removeAttribute("disabled", "");
           repsField.setAttribute("enabled", "");
+          // hide these elements because they have no history yet
           var completedField = document.getElementById("completedDiv");
           completedField.style.display = "none";
           var completedField = document.getElementById("outOf");

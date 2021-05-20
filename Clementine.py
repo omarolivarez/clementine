@@ -16,7 +16,7 @@ cur = con.cursor()
 
 @eel.expose
 def get_csv():
-    print("start")
+    print("Inside get_csv()")
     root = tk.Tk()
     root.withdraw()
 
@@ -105,5 +105,26 @@ def write_config():
         config.write(configfile)
     return
 
+@eel.expose
+def import_history():
+    # create the window to select the .ini's file path
+    root = tk.Tk()
+    root.withdraw()
+    file_path = filedialog.askopenfilename()
+    print("This is the selected file path:", file_path)
+    root.update()
+    root.destroy()
+
+    print("Reading in the .ini file")
+    config = configparser.ConfigParser()
+    history = config.read(file_path)['DEFAULT']
+
+    # set the values from .ini into clem object
+    clem.set_column(history.get('column_name'))
+    clem.set_reps_passed(history.get('completed_reps'))
+    clem.set_total_reps(history.get('total_reps'))
+
+    eel.updateConfigs()
+    return
 
 eel.start("index.html", size=(600,600))

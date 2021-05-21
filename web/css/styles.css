@@ -11,13 +11,13 @@ body {
 }
 
 body {
-    background-color: #dde3fb;
+    background-color: #0a0f1a;
     display: grid;
     place-items: center
 }
 
 .card {
-    background-color: #222222;
+    background-color: #152033;
     border-radius: 10px;
     font-family: 'Manrope', sans-serif
 }
@@ -73,4 +73,38 @@ body {
 
 .statistic + label {
 	cursor: pointer; /* "hand" cursor */
+}
+
+/* navbar*/
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #152033;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 12px 6px 6px 12px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #eeeeee;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

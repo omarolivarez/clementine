@@ -186,4 +186,4 @@ def calculate_bootstrapped_values():
 
     eel.showBoostrapAlert(string_to_return)
 
-eel.start("index.html", size=(600,600))
+eel.start("index.html", size=(1000,600))

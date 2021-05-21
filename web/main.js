@@ -1,6 +1,7 @@
 var clicked = false;
 var p = document.getElementById("pause");
 var radioButton = document.getElementById("gridRadios1")
+
 $(document).ready(function(){
     $('input[type=radio]').click(function(){
         if(this.value=="yes"){ // this means they are importing history
@@ -39,6 +40,14 @@ $(document).ready(function(){
 
         }
     });
+});
+
+$(document).ready(function() {
+// SideNav Button Initialization
+$(".button-collapse").sideNav();
+// SideNav Scrollbar Initialization
+var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+var ps = new PerfectScrollbar(sideNavScrollbar);
 });
 
 function flipClicked() {

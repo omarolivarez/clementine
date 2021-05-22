@@ -88,10 +88,20 @@ body {
   padding-top: 20px;
 }
 
+.sidenav label {
+  font-size: 15px;
+  color: #eeeeee;
+}
+
+.sidenav legend {
+  color: #eeeeee;
+  font-size: 15px;
+}
+
 .sidenav a {
   padding: 12px 6px 6px 12px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   color: #eeeeee;
   display: block;
 }
@@ -107,4 +117,21 @@ body {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+label {
+  color: #eeeeee;
+}
+
+input[type="text"] {
+  background-color: #0a0f1a;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  /*border:2px solid #0a0f1a;*/
+}
+
+option {
+  background-color: #0a0f1a;
 }

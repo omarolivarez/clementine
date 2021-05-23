@@ -24,27 +24,27 @@
       <a href="#">Completed Reps</a>
       <a href="#">Select CSV</a>-->
       <div class = "navbar-header">
-            <a class = "navbar-brand" href = "#">Configurations</a>
+            <a class = "navbar-brand" href = "#" style="margin:0px 0px 0px 70px">Configurations</a>
          </div>
          <br>
          <div>
-            <form class = "navbar-form navbar-left">
+            <form class = "navbar-form navbar-left" action="" method="GET" onsubmit="return false;" id="firstPageForm">
                <!--<div class = "form-group">
                   <input type = "text" class = "form-control" placeholder = "Search here...">
                </div>-->
                <div class="row justify-content-center">
                  <div class="col-sm-8">
-                   <button type = "submit" class="btn btn-primary" style="width:100%">Import CSV</button>
+                   <button type = "button" class="btn btn-primary" style="width:100%" onclick="getPathToFile()" id="input">Import CSV</button>
                  </div>
                </div>
                <div class="row">
-                 <legend class="col-form-label col-sm-6 pt-0" id="importHistory">Import History?</legend>
+                 <legend class="col-form-label col-sm-6 pt-0" id="importHistory" style="margin:30px 0px 0px 0px">Import History?</legend>
                  <div class="col-sm-6">
-                   <div class="form-check form-check-inline">
+                   <div class="form-check form-check-inline" style="margin:30px 0px 0px 0px; justify-content:left;">
                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="no" checked>
                      <label class="form-check-label" for="gridRadios1" id="noLabel"> No </label>
                    </div>
-                   <div class="form-check form-check-inline">
+                   <div class="form-check form-check-inline" style="margin:30px 0px 0px 0px">
                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="yes">
                      <label class="form-check-label" for="gridRadios2"> Yes </label>
                    </div>
@@ -52,19 +52,19 @@
                </div>
                <div class="row">
                  <div class="col-sm-4">
-                   <label for="column">Column</label>
+                   <label for="column" style="margin:10px 0px 0px 20px">Column</label>
                  </div>
                  <div class="col-sm-8">
-                   <select class="form-control"  style="background-color: #0a0f1a" id="column">
+                   <select class="form-control"  style="background-color: #0a0f1a; margin:10px 10px 0px 0px; width:80%" id="column">
                    </select>
                  </div>
                </div>
                <div class="row">
                  <div class="col-sm-4">
-                   <label for="statistic">Statistic</label>
+                   <label for="statistic" style="margin:10px 0px 0px 20px">Statistic</label>
                  </div>
                  <div class="col-sm-8">
-                   <select class="form-control" style="background-color: #0a0f1a; " id="statistic">
+                   <select class="form-control" style="background-color: #0a0f1a; margin:10px 10px 0px 0px; width:80%" id="statistic">
                      <option>Mean</option>
                      <option>Median</option>
                    </select>
@@ -72,10 +72,10 @@
                </div>
                <div class="row">
                  <div class="col-sm-4">
-                   <label for="repetitions">Repetions</label>
+                   <label for="repetitions" style="margin:10px 0px 0px 20px">Repetions</label>
                  </div>
                  <div class="col-sm-8">
-                   <input class="form-control" style="display:block" type="text" placeholder="10,000" id="repetitions">
+                   <input class="form-control" style="display:block; margin:10px 10px 0px 0px; width:80%" type="text" placeholder="10,000" id="repetitions">
                  </div>
                </div>
                <div class="row">
@@ -83,19 +83,19 @@
                    <label for="completed">*Completed Reps</label>
                  </div>
                  <div class="col-sm-8" id="completedDiv" style="display:none;">
-                   <input class="form-control" style="display:block" type="text" placeholder="0"  disabled="disabled" id="completed">
+                   <input class="form-control" style="display:block;margin:10px 10px 0px 0px; width:80%" type="text" placeholder="0"  disabled="disabled" id="completed">
                  </div>
                </div>
                <div class="row justify-content-center">
                  <div class="col-sm-8">
-                   <button class="btn btn-success begin-button"  style="width:100%" onclick="hideUnhide(this.form)" id="begin">Begin</button>
+                   <button class="btn btn-success begin-button"  style="width:100%;margin:60px 0px 0px 0px" onclick="hideUnhide(this.form)" id="begin">Begin</button>
                  </div>
                </div>
             </form>
             <br>
             <div class="row justify-content-center">
               <div class="col-sm-8">
-                <button class="btn btn-secondary" id="resetButton"> Reset </button>
+                <button class="btn btn-secondary" id="resetButton" style="margin:80px 0px 0px 0px;width:100%"> Reset </button>
               </div>
             </div>
             <!--<button type = "button" class = "btn btn-default navbar-btn">Navbar Button</button>-->
@@ -109,6 +109,7 @@
                 <!--<div class="row d-flex flex-row-reverse my-2 pr-2 pr-md-5 div1">
                     <div class="col-3 px-0"> <button class="btn btn-secondary px-4 py-2 float-right" id="resetButton"> Reset </button> </div>
                 </div>-->
+                <!-- REMOVING STARTING HERE
                 <div class="row justify-content-end">
                   <div class="col-2">
                     <button class="btn btn-secondary" id="resetButton"> Reset </button>
@@ -122,6 +123,7 @@
                         <button type="button" class="btn btn-primary" style="width:100%" onclick="getPathToFile()" id="input">Select CSV</button>
                       </div>
                     </div>
+
                     <br>
 
                     <div class="row">
@@ -170,34 +172,28 @@
                         <input class="form-control" style="display:block" type="text" placeholder="10,000" id="repetitions">
                       </div>
                     </div>
-                    <br>
+                    <br>-->
                     <!--<div class="row">
                       <button class="btn btn-success begin-button" onclick="hideUnhide(this.form)" id="begin">Begin</button>
                     </div>-->
-                    <div class="row justify-content-center">
+                    <!--<div class="row justify-content-center">
                       <div class="col-sm-8">
                         <button class="btn btn-success begin-button"  style="width:100%" onclick="hideUnhide(this.form)" id="begin">Begin</button>
                       </div>
                     </div>
                   </div>
-                </form>
-
-                <br>
+                </form>-->
                 <div class="container">
                   <div class="row justify-content-center">
                     <div class="col"> <!--col-sm-8-->
-                      <button class="btn btn-warning" onclick="flipClicked()" style="display:none;" id="pause">Pause</button>
+                      <button class="btn btn-warning" onclick="flipClicked()" style="" id="pause">Pause</button> <!--;display:none-->
                     </div>
                   </div>
-                  <!--<div class="col-sm-3">
-                    <button class="btn btn-warning" onclick="" style="display:none;" id="pause">Pause</button>
-                  </div>-->
                   <br>
-                  <div class="progress" id="progressDiv" style="background-color:#222222;display:none"> <!---->
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%;display:none;" id="progress">0%</div>
+                  <div class="progress" id="progressDiv" style="background-color:#222222"> <!--;display:none-->
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%;" id="progress">0%</div> <!--;display:none-->
                   </div>
                 </div>
-
               </div>
           </div>
       </div>

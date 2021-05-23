@@ -55,12 +55,16 @@ body {
     box-shadow: none
 }
 
+.form-control:focus{
+  background-color: #0a0f1a;
+}
+
 *:focus {
     outline: none
 }
 
 .btn-success{
-  background-color: #04d928;
+  background-color: #48bd65;
 }
 
 .inputfile + label {
@@ -89,13 +93,13 @@ body {
 }
 
 .sidenav label {
-  font-size: 15px;
+  font-size: 14px;
   color: #eeeeee;
 }
 
 .sidenav legend {
   color: #eeeeee;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .sidenav a {
@@ -134,4 +138,13 @@ input[type="text"] {
 
 option {
   background-color: #0a0f1a;
+}
+
+.btn-primary {
+  background-color: #bf1967;
+  border:none;
+}
+
+.form-control {
+  border-color: #152033;
 }

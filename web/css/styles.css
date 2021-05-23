@@ -140,8 +140,13 @@ option {
   background-color: #0a0f1a;
 }
 
-.btn-primary {
+.btn-primary { /*this is the Import CSV button*/
   background-color: #bf1967;
+  border:none;
+}
+
+.btn-primary:hover {
+  background: #a31457;
   border:none;
 }
 

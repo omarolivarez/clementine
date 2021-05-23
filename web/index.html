@@ -28,7 +28,7 @@
          </div>
          <br>
          <div>
-            <form class = "navbar-form navbar-left" action="" method="GET" onsubmit="return false;" id="firstPageForm">
+            <form class = "navbar-form navbar-left" action="" method="GET" onsubmit="return false;" id="firstPageForm"  disabled="enabled">
                <!--<div class = "form-group">
                   <input type = "text" class = "form-control" placeholder = "Search here...">
                </div>-->
@@ -78,11 +78,11 @@
                    <input class="form-control" style="display:block; margin:10px 10px 0px 0px; width:80%" type="text" placeholder="10,000" id="repetitions">
                  </div>
                </div>
-               <div class="row">
-                 <div class="col-sm-4" id="completedDiv" style="display:none;">
-                   <label for="completed">*Completed Reps</label>
+               <div class="row" id="completedDiv" style="display:none;">
+                 <div class="col-sm-4"> <!-- style="display:none;" id="completedDiv"-->
+                   <label for="completed">Com</label>
                  </div>
-                 <div class="col-sm-8" id="completedDiv" style="display:none;">
+                 <div class="col-sm-8"> <!-- style="display:none;" id="completedDiv"-->
                    <input class="form-control" style="display:block;margin:10px 10px 0px 0px; width:80%" type="text" placeholder="0"  disabled="disabled" id="completed">
                  </div>
                </div>

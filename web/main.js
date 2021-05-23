@@ -19,8 +19,8 @@ $(document).ready(function(){
           //show these elements bc they do have the history, but leave them disabled in the html
           var completedField = document.getElementById("completedDiv");
           completedField.style.display = "block";
-          var completedField = document.getElementById("outOf");
-          completedField.style.display = "block";
+          //var completedField = document.getElementById("outOf");
+          //completedField.style.display = "block";
 
         } else { // this means they're not importing history
           var columnField = document.getElementById("column");
@@ -35,8 +35,8 @@ $(document).ready(function(){
           // hide these elements because they have no history yet
           var completedField = document.getElementById("completedDiv");
           completedField.style.display = "none";
-          var completedField = document.getElementById("outOf");
-          completedField.style.display = "none";
+          //var completedField = document.getElementById("outOf");
+          //completedField.style.display = "none";
 
         }
     });
@@ -90,6 +90,8 @@ function hideUnhide(form) {
   inElement.style.display = "none";
   var formElement = document.getElementById("firstPageForm");
   formElement.style.display = "none";
+  //formElement.removeAttribute("enabled", ""); // NOTE: NEED TO WORK ON THIS TO MAKE FIELDS UNEDITABLE
+  //formElement.setAttribute("disabled", "");
 
   var pauseElement = document.getElementById("pause");
   pauseElement.style.display = "block";

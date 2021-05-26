@@ -17,10 +17,12 @@ $(document).ready(function(){
           repsField.removeAttribute("enabled", "");
           repsField.setAttribute("disabled", "");
           //show these elements bc they do have the history, but leave them disabled in the html
-          var completedField = document.getElementById("completedDiv");
-          completedField.style.display = "block";
-          //var completedField = document.getElementById("outOf");
+          var completedField = document.getElementById("completedDiv"); // NOTE: uncomment these two lines later
           //completedField.style.display = "block";
+          //completedField.style.float = "left";
+          var completed = document.getElementById("completed"); // change input field size
+          //completed.style.width = "80%";
+          //completed.style.clear="left";
 
         } else { // this means they're not importing history
           var columnField = document.getElementById("column");
@@ -33,9 +35,7 @@ $(document).ready(function(){
           repsField.removeAttribute("disabled", "");
           repsField.setAttribute("enabled", "");
           // hide these elements because they have no history yet
-          var completedField = document.getElementById("completedDiv");
-          completedField.style.display = "none";
-          //var completedField = document.getElementById("outOf");
+          //var completedField = document.getElementById("completedDiv"); // NOTE: uncomment these two lines later
           //completedField.style.display = "none";
 
         }

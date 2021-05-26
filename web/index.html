@@ -38,15 +38,16 @@
                  </div>
                </div>
                <div class="row">
-                 <legend class="col-form-label col-sm-6 pt-0" id="importHistory" style="margin:30px 0px 0px 0px">Import History?</legend>
-                 <div class="col-sm-6">
-                   <div class="form-check form-check-inline" style="margin:30px 0px 0px 0px; justify-content:left;">
+                 <legend class="col-form-label col-sm-5 pt-0" id="importHistory" style="margin:30px 0px 0px 20px">Import History?</legend>
+                 <div class="col-sm-5">
+                   <div class="form-check form-check-inline" style="margin:5px 0px 0px 0px;"> <!--<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="yes">
+                   <label class="form-check-label" for="gridRadios2"> Yes </label>-->
                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="no" checked>
-                     <label class="form-check-label" for="gridRadios1" id="noLabel"> No </label>
+                     <label class="form-check-label" for="gridRadios1" id="noLabel">No</label>
                    </div>
                    <div class="form-check form-check-inline" style="margin:30px 0px 0px 0px">
                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="yes">
-                     <label class="form-check-label" for="gridRadios2"> Yes </label>
+                     <label class="form-check-label" for="gridRadios2">Yes</label>
                    </div>
                  </div>
                </div>
@@ -75,27 +76,31 @@
                    <label for="repetitions" style="margin:10px 0px 0px 20px">Repetions</label>
                  </div>
                  <div class="col-sm-8">
-                   <input class="form-control" style="display:block; margin:10px 10px 0px 0px; width:80%" type="text" placeholder="10,000" id="repetitions">
+                   <input class="form-control" style="display:block; margin:10px 10px 0px 0px; width:80%" type="text" placeholder="" id="repetitions">
                  </div>
                </div>
-               <div class="row" id="completedDiv" style="display:none;">
+               <div class="row" id="completedDiv"> <!--  style="display:none;" -->
                  <div class="col-sm-4"> <!-- style="display:none;" id="completedDiv"-->
-                   <label for="completed">Com</label>
+                   <label for="completed" style="margin:10px 0px 0px 20px">Completed</label>
                  </div>
-                 <div class="col-sm-8"> <!-- style="display:none;" id="completedDiv"-->
-                   <input class="form-control" style="display:block;margin:10px 10px 0px 0px; width:80%" type="text" placeholder="0"  disabled="disabled" id="completed">
+                 <div class="col-sm-8">
+                   <input class="form-control" style="margin:10px 10px 0px 0px; width:80%" type="text" placeholder="0" disabled="disabled" id="completed"> <!--display:block; -->
                  </div>
+                 <!--<div class="col-sm-8"> --><!-- style="display:none;" id="completedDiv"-->
+                   <!--<input class="form-control" style="display:block;margin:10px 10px 0px 0px; width:80%" type="text" placeholder="0"  disabled="disabled" id="completed">
+                 </div>-->
                </div>
+               <br>
                <div class="row justify-content-center">
                  <div class="col-sm-8">
-                   <button class="btn btn-success begin-button"  style="width:100%;margin:60px 0px 0px 0px" onclick="hideUnhide(this.form)" id="begin">Begin</button>
+                   <button class="btn btn-success begin-button"  style="width:100%;margin:40px 0px 0px 0px" onclick="hideUnhide(this.form)" id="begin">Begin</button>
                  </div>
                </div>
             </form>
             <br>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center resetButtonDiv">
               <div class="col-sm-8">
-                <button class="btn btn-secondary" id="resetButton" style="margin:80px 0px 0px 0px;width:100%"> Reset </button>
+                <button class="btn btn-secondary" id="resetButton" style="margin:40px 0px 0px 0px;width:100%">Reset</button>
               </div>
             </div>
             <!--<button type = "button" class = "btn btn-default navbar-btn">Navbar Button</button>-->

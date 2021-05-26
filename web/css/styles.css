@@ -136,6 +136,15 @@ input[type="text"] {
   /*border:2px solid #0a0f1a;*/
 }
 
+input[type="text"]:disabled {
+  background-color: #0a0f1a;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  /*border:2px solid #0a0f1a;*/
+}
+
 option {
   background-color: #0a0f1a;
 }
@@ -152,4 +161,10 @@ option {
 
 .form-control {
   border-color: #152033;
+}
+
+.resetButtonDiv {
+  position: absolute;
+  bottom: 10;
+  width:315px;
 }

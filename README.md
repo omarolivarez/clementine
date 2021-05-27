@@ -30,4 +30,4 @@ Configuration screen to prepare bootstrap:
 
   
  Bootstrapped results screen:
- ![post-bootstrap results](https://github.com/omarolivarez/clementine/blob/main/post-bs.png)
+ ![post-bootstrap results](https://github.com/omarolivarez/clementine/blob/main/post_bs.png)

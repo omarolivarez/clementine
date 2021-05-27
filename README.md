@@ -26,8 +26,8 @@ I would love to improve Clementine for the scientific and developer communities.
 
 ## Screenshots
 Configuration screen to prepare bootstrap:
-![pre-bootstrap setup](https://github.com/omarolivarez/clementine/blob/main/pre-bootstrap.png)
+![pre-bootstrap setup](https://github.com/omarolivarez/clementine/blob/main/pre-bs.png)
 
   
  Bootstrapped results screen:
- ![post-bootstrap results](https://github.com/omarolivarez/clementine/blob/main/post-bootstrap.png)
+ ![post-bootstrap results](https://github.com/omarolivarez/clementine/blob/main/post-bs.png)

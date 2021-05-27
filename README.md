@@ -23,3 +23,10 @@ I would love to improve Clementine for the scientific and developer communities.
 4. Select which statistic you would like to calculate on each bootstrapped sample. You can select from: Mean, Median  
 5. Select how many repetitions you would like Clementine to perform. You can always pause Clementine mid-way through your bootstrapping so it's okay if you want to bootstrap a lot! (10,000 or more)
 6. Click the Begin button to launch the bootstrapping process. 
+
+## Screenshots
+Configuration screen to prepare bootstrap:
+https://github.com/omarolivarez/clementine/blob/main/pre-bootstrap.png
+  
+ Bootstrapped results screen:
+ 

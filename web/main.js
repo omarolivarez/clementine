@@ -138,7 +138,8 @@ function endProgress(){
 }
 eel.expose(endProgress)
 
-function showBoostrapAlert(alert_string){
+function showBoostrapAlert(alert_string){ // use this function to update p tags
+  document.getElementById('bsMeanValue').innerText = alert_string
   alert(alert_string);
 }
 eel.expose(showBoostrapAlert)

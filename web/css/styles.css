@@ -56,6 +56,15 @@ body {
   background-color: #040405;
 }
 
+.btn-warning {
+  border: 0px;
+  float:right;
+  background-color:#dbedf3;
+  color: #152033; /* font color*/
+  font-size: 0.78rem;
+  width:110px;
+}
+
 .btn:focus {
     outline: none;
     box-shadow: none
@@ -183,7 +192,7 @@ option {
 }
 
 .ralewayFont {
-  font-family: 'Raleway';
+  font-family: 'PT Sans';
   font-size: 20px;
 }
 

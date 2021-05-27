@@ -21,7 +21,7 @@ body {
 .card {
     background-color: #152033;
     border-radius: 10px;
-    font-family: 'Manrope', sans-serif
+    font-family: 'Manrope', sans-serif;
 }
 
 .fa {
@@ -46,10 +46,14 @@ body {
 }
 
 #resetButton {
-  background-color: #424242;
-  color: #141414;
+  background-color: #0a0f1a;
+  color: #2a3d5e;
   font-size: 0.78rem;
   border: 0px
+}
+
+#resetButton:hover {
+  background-color: #040405;
 }
 
 .btn:focus {
@@ -175,10 +179,19 @@ option {
 .resetButtonDiv {
   position: absolute;
   bottom: 10;
-  width:315px;
+  width:323px;
 }
 
 .ralewayFont {
   font-family: 'Raleway';
   font-size: 20px;
+}
+
+.pattayaFont {
+  font-family: 'Pattaya';
+  font-size: 20px;
+}
+
+#pause:hover { // for the pause button
+  background-color: #bf1967;
 }

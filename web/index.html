@@ -29,7 +29,7 @@
             <a class = "navbar-brand ralewayFont" href = "#" style="margin:0px 0px 0px 70px">Configurations</a>
       </div>
       <br>-->
-      <p class="ralewayFont">Configurations</p>
+      <p class="ralewayFont" style="margin:0px 0px 10px 0px">Configurations</p>
       <div>
          <form class = "navbar-form navbar-left" action="" method="GET" onsubmit="return false;" id="firstPageForm"  disabled="enabled">
             <!--<div class = "form-group">
@@ -41,14 +41,14 @@
               </div>
             </div>
             <div class="row">
-              <legend class="col-form-label col-sm-5 pt-0" id="importHistory" style="margin:30px 0px 0px 20px">Import History?</legend>
+              <legend class="col-form-label col-sm-5 pt-0" id="importHistory" style="margin:15px 0px 0px 20px">Import History?</legend>
               <div class="col-sm-5">
                 <div class="form-check form-check-inline" style="margin:5px 0px 0px 0px;"> <!--<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="yes">
                 <label class="form-check-label" for="gridRadios2"> Yes </label>-->
                   <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="no" checked>
                   <label class="form-check-label" for="gridRadios1" id="noLabel">No</label>
                 </div>
-                <div class="form-check form-check-inline" style="margin:30px 0px 0px 0px">
+                <div class="form-check form-check-inline" style="margin:15px 0px 0px 0px">
                   <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="yes">
                   <label class="form-check-label" for="gridRadios2">Yes</label>
                 </div>
@@ -96,19 +96,28 @@
             <br>
             <div class="row justify-content-center">
               <div class="col-sm-8">
-                <button class="btn btn-success begin-button"  style="width:100%;margin:10px 0px 0px 0px" onclick="hideUnhide(this.form)" id="begin">Begin</button>
+                <button class="btn btn-success begin-button"  style="width:100%;margin:0px 0px 0px 0px" onclick="hideUnhide(this.form)" id="begin">Begin</button>
               </div>
             </div>
          </form>
-         <br>
          <div class="row justify-content-center resetButtonDiv">
            <div class="col-sm-8">
-             <button class="btn btn-secondary" id="resetButton" style="margin:40px 0px 0px 0px;width:100%">Reset</button>
+             <button class="btn btn-secondary" id="resetButton" style="margin:15px 0px 0px 0px;width:100%">Reset</button>
            </div>
          </div>
          <!--<button type = "button" class = "btn btn-default navbar-btn">Navbar Button</button>-->
       </div>
     </div>
+
+    <div>
+      <div class="row">
+        <div class="col">
+          <h1 class="pattayaFont" style="color:#cf7434;font-size: 2.00rem;margin:7px 0px 0px -125px;">Clementine</h1>
+        </div>
+      </div>
+      <img src="/img/clem_icon.png" style="width:40px;height:40px; position: absolute;right: 3%;top:1%;margin: 5px 0px 0px 0px;">
+    </div>
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <div class="container-fluid">
       <div class="row justify-content-end">
@@ -117,16 +126,16 @@
                 <div class="container">
                   <div class="row justify-content-end">
                     <div class="col">
-                      <p class="ralewayFont">Progress</p>
+                      <p class="ralewayFont" style="text-align:center">Progress</p>
                     </div>
                   </div>
                   <div class="progress" id="progressDiv" style="background-color:#222222"> <!--;display:none-->
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%;" id="progress">0%</div> <!--;display:none-->
                   </div>
                   <br>
-                  <div class="row justify-content-center">
+                  <div class="row justify-content-end">
                     <div class="col"> <!--col-sm-8-->
-                      <button class="btn btn-warning" onclick="flipClicked()" style="" id="pause">Pause</button> <!--;display:none-->
+                      <button class="btn btn-warning" onclick="flipClicked()"  style="float:right;" id="pause">Pause!</button> <!--;display:none-->
                     </div>
                   </div>
 
@@ -219,7 +228,10 @@
           <div class="col-12 col-md-8 col-sm-12 col-xs-12">
               <div class="card p-3 p-md-4 text-white"> <span><i class="fa fa-envelope-open-o fa-2x" aria-hidden="true"></i></span>
                 <div class="container">
-                  <p>Results</p>
+                  <div class="row justify-content-center">
+                    <p class="ralewayFont" style="text-align:center">Results</p>
+                  </div>
+
                   <p>Bootstrapped mean:</p>
                   <p>Confidence interval:</p>
                   <p>Out of __ reps: </p>
@@ -228,6 +240,7 @@
           </div>
       </div>
     </div>
+
 
   </body>
 </html>

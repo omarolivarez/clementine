@@ -53,7 +53,21 @@ body {
 }
 
 #resetButton:hover {
-  background-color: #040405;
+  background-color: #dbedf3;
+  color: #152033;
+}
+
+.btn-warning {
+  border: 0px;
+  float:right;
+  background-color:#dbedf3;
+  color: #152033; /* font color*/
+  font-size: 0.78rem;
+  width:110px;
+}
+
+.btn-warning:hover {
+  background-color:#aec6cf;
 }
 
 .btn:focus {
@@ -172,6 +186,11 @@ option {
   border:none;
 }
 
+.btn-primary:disabled {
+  background: #a31457;
+  border:none;
+}
+
 .form-control {
   border-color: #152033;
 }
@@ -183,7 +202,7 @@ option {
 }
 
 .ralewayFont {
-  font-family: 'Raleway';
+  font-family: 'PT Sans';
   font-size: 20px;
 }
 

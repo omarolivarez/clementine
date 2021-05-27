@@ -167,11 +167,14 @@ def calculate_bootstrapped_values():
     #(SELECT AVG(row) AS a FROM t) AS sub;
     ci_hi = round(row_avg + 1.95 * (row_sd / math.sqrt(row_count)), 5)
     ci_lo = round(row_avg - 1.95 * (row_sd / math.sqrt(row_count)), 5)
-
+    n_row = f"{row_count:,d}"
     # create a string to pass back into the alert
     string_to_return = "Boostrapping complete!\nBootstrapped mean: " + str(row_avg) + "\nConfidence interval: " + \
         str(ci_lo) + " to " + str(ci_hi) + "\nOut of " + f"{row_count:,d}" + " repetitions."
     print(string_to_return)
+    r_avg = "Bootstrapped mean: "+str(row_avg)
+    ci = "Confidence interval: " + str(ci_lo) + " to " + str(ci_hi)
+    t_reps = "Total repetitions:   " + n_row
     #print(f"{row_count:,d}")
     #con.commit()
     #return string_to_return
@@ -184,6 +187,6 @@ def calculate_bootstrapped_values():
     #close the connection
     #con.close() # need to see if I actually need to close this connection, and where to do so
 
-    eel.showBoostrapAlert(string_to_return)
+    eel.showBoostrapAlert(r_avg, ci, t_reps)
 
 eel.start("index.html", size=(900,500))

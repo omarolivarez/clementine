@@ -87,9 +87,23 @@ function hideUnhide(form) {
   console.log(stat);
   console.log(reps);
   var inElement = document.getElementById("input");
-  inElement.style.display = "none";
+  //inElement.style.display = "none";
+  inElement.disabled=true;
+  var r1 = document.getElementById("gridRadios1");
+  r1.disabled=true;
+  var r2 = document.getElementById("gridRadios2");
+  r2.disabled=true;
+  var c = document.getElementById("column");
+  c.disabled=true;
+  var s = document.getElementById("statistic");
+  s.disabled=true;
+  var r = document.getElementById("repetitions");
+  r.disabled=true;
+  var b = document.getElementById("begin");
+  b.disabled=true;
+  
   var formElement = document.getElementById("firstPageForm");
-  formElement.style.display = "none";
+  //formElement.style.display = "none";
   //formElement.removeAttribute("enabled", ""); // NOTE: NEED TO WORK ON THIS TO MAKE FIELDS UNEDITABLE
   //formElement.setAttribute("disabled", "");
 
@@ -138,8 +152,11 @@ function endProgress(){
 }
 eel.expose(endProgress)
 
-function showBoostrapAlert(alert_string){
-  alert(alert_string);
+function showBoostrapAlert(mean, ci, count){ // use this function to update p tags
+  document.getElementById('bsMeanValue').innerText = mean
+  document.getElementById('bsCI').innerText = ci
+  document.getElementById('bsReps').innerText = count
+  //alert(alert_string);
 }
 eel.expose(showBoostrapAlert)
 

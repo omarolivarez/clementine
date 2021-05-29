@@ -179,3 +179,18 @@ function updateConfigs(col_name, com_reps, total_reps, stat){
   document.getElementById("statistic").value = stat;
 }
 eel.expose(updateConfigs)
+
+function reset(){
+  document.getElementById("column").value = "";
+  removeOptions(document.getElementById('column'));
+  document.getElementById("repetitions").value = "";
+  document.getElementById("statistic").value = "";
+  document.getElementById("completed").value = "";
+}
+
+function removeOptions(selectElement) {
+   var i, L = selectElement.options.length - 1;
+   for(i = L; i >= 0; i--) {
+      selectElement.remove(i);
+   }
+}

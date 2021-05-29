@@ -34,6 +34,12 @@ $(document).ready(function(){
           var repsField = document.getElementById("repetitions");
           repsField.removeAttribute("disabled", "");
           repsField.setAttribute("enabled", "");
+
+          columnField.value = "";
+          columnField.options.remove(columnField.options.length - 1);
+          repsField.value = "";
+          statField.value = "";
+          document.getElementById("completed").value = "";
           // hide these elements because they have no history yet
           //var completedField = document.getElementById("completedDiv"); // NOTE: uncomment these two lines later
           //completedField.style.display = "none";
@@ -101,7 +107,7 @@ function hideUnhide(form) {
   r.disabled=true;
   var b = document.getElementById("begin");
   b.disabled=true;
-  
+
   var formElement = document.getElementById("firstPageForm");
   //formElement.style.display = "none";
   //formElement.removeAttribute("enabled", ""); // NOTE: NEED TO WORK ON THIS TO MAKE FIELDS UNEDITABLE
@@ -167,8 +173,24 @@ function updateConfigs(col_name, com_reps, total_reps, stat){
   el.textContent = col;
   el.value = col;
   select.add(el);
+  document.getElementById("column").value = col_name;
   document.getElementById("completed").value = com_reps;
   document.getElementById("repetitions").value = total_reps;
   document.getElementById("statistic").value = stat;
 }
 eel.expose(updateConfigs)
+
+function reset(){
+  document.getElementById("column").value = "";
+  removeOptions(document.getElementById('column'));
+  document.getElementById("repetitions").value = "";
+  document.getElementById("statistic").value = "";
+  document.getElementById("completed").value = "";
+}
+
+function removeOptions(selectElement) {
+   var i, L = selectElement.options.length - 1;
+   for(i = L; i >= 0; i--) {
+      selectElement.remove(i);
+   }
+}
